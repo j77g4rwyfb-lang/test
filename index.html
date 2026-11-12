@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--tg-theme-bg-color, #ffffff);
+    }
+    .widget-card {
+      display: flex;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 18px;
+      color: #1c1c1e;
+      gap: 20px;
+      max-width: 540px;
+      box-sizing: border-box;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .left-col {
+      flex: 0 0 165px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .header-tags {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #6b7280;
+    }
+    .status-active {
+      color: #16a34a;
+      background: #dcfce7;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+    .title {
+      font-size: 19px;
+      font-weight: 700;
+      margin: 0;
+    }
+    .location {
+      background: #f8fafc;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.4;
+    }
+    .platforms {
+      display: flex;
+      gap: 6px;
+    }
+    .platform-btn {
+      background: #0284c7;
+      color: #ffffff;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .details-btn {
+      background: #f1f5f9;
+      color: #1e293b;
+      border: none;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .divider {
+      width: 1px;
+      background: #e5e7eb;
+    }
+    .right-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .top-stats, .bottom-stats {
+      display: flex;
+      justify-content: space-between;
+    }
+    .stat-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .stat-value {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .middle-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-top: 1px solid #f1f5f9;
+      border-bottom: 1px solid #f1f5f9;
+      margin: 10px 0;
+    }
+    .plan-fact .row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .dot.gray { background: #d1d5db; }
+    .dot.green { background: #22c55e; }
+    .progress-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: conic-gradient(#22c55e 0% 30%, #f87171 30% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .progress-inner {
+      width: 58px;
+      height: 58px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .progress-percent {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .progress-sub {
+      font-size: 9px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-card">
+    <div class="left-col">
+      <div class="header-tags">
+        <span>PRV-0083</span>
+        <span class="status-active">● Активно</span>
+      </div>
+      <h2 class="title">Молодежная</h2>
+      <div class="location">📍 Ижевск<br>Молодежная 107...</div>
+      <div class="platforms">
+        <span class="platform-btn">VK Ads</span>
+        <span class="platform-btn">Senler</span>
+      </div>
+      <button class="details-btn">Детали <span>›</span></button>
+    </div>
+    <div class="divider"></div>
+    <div class="right-col">
+      <div class="top-stats">
+        <div class="stat-block">
+          <span class="stat-label">Активность</span>
+          <span class="stat-value">День Х</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">Период</span>
+          <span class="stat-value">01.11–21.11</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">Бюджет</span>
+          <span class="stat-value">5 555,56 ₽</span>
+        </div>
+      </div>
+      <div class="middle-section">
+        <div class="plan-fact">
+          <div class="row"><span class="dot gray"></span> План &nbsp;<b>407,92 ₽</b></div>
+          <div class="row"><span class="dot green"></span> Факт &nbsp;<b>120,66 ₽</b></div>
+        </div>
+        <div class="progress-circle">
+          <div class="progress-inner">
+            <span class="progress-percent">30%</span>
+            <span class="progress-sub">от плана</span>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-stats">
+        <div class="stat-block"><span class="stat-label">Senler</span><span class="stat-value">9</span></div>
+        <div class="stat-block"><span class="stat-label">CPF Senler</span><span class="stat-value">13,41 ₽</span></div>
+        <div class="stat-block"><span class="stat-label">CTR</span><span class="stat-value">2,61%</span></div>
+        <div class="stat-block"><span class="stat-label">CR</span><span class="stat-value">40,91%</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.ready();
+      window.Telegram.WebApp.expand();
+    }
+  </script>
+</body>
+</html>
